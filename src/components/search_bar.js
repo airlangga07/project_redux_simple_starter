@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const SearchBar = () => {
-  return <input />;
+// functional based component
+// const SearchBar = () => {
+//   return <input />;
+// }
+
+// class based component
+// class SearchBar extends React.Component {
+//   render() {
+//     return <input />;
+//   }
+// }
+
+// class based component ES6 style
+class SearchBar extends Component {
+  render() {
+    return <input />;
+  }
 }
 
 export default SearchBar;
