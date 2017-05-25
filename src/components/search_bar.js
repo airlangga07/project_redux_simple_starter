@@ -1,3 +1,13 @@
+// NOTES
+// 1. setting state can be in many ways. you can try to use this:
+//      <input onChange={this.onInputChange.bind(this)} />
+//    and initialize the handle function like this
+//      onInputChange(event) { this.setState({ term: event.target.value })};
+//    if you do not like the .bind(this) to call on all function you can use this 
+//      onInputChange = event => this.setState({ term: event.target.value });
+//    or you can first initialize it in the constructor method like so
+//      this.onInputChange = this.onInputChange.bind(this)
+
 import React, { Component } from 'react';
 
 // functional based component
@@ -20,10 +30,15 @@ class SearchBar extends Component {
     this.state = { term: "" };
   }
 
+  onInputChange = event => {
+    this.setState({ term: event.target.value });
+  }
+
   render() {
     return (
       <div>
-        <input onChange={event => this.setState({ term: event.target.value })} />
+        <input onChange={this.onInputChange} />
+        {this.state.term}
       </div>
     );
   }
